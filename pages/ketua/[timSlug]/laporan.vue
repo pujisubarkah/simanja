@@ -99,7 +99,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'ketua' })
+definePageMeta({ layout: 'default' })
 import { generateReportPDF } from '~/composables/usePdf'
 import { useRoute } from 'vue-router'
 import { ref, computed } from 'vue'

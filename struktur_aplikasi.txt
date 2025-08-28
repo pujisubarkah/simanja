@@ -1,0 +1,46 @@
+📦 Aplikasi Manajemen Kinerja (Nuxt 3)
+│
+├── 🔑 Auth & Role Guard
+│    ├── Login (Admin, Pimpinan, Unit Kerja)
+│    └── Middleware (role-based access)
+│
+├── 📊 Dashboard
+│    ├── Ringkasan IKU
+│    ├── Grafik Capaian
+│    ├── Notifikasi Deadlines
+│    └── Progress Card per Modul
+│
+├── 📑 Renstra (Strategis 5 Tahunan)
+│    ├── Visi & Misi
+│    ├── Tujuan & Sasaran
+│    ├── Indikator Kinerja Utama (IKU)
+│    └── Cascading → Renja
+│
+├── 📋 Renja (Rencana Kerja Tahunan)
+│    ├── Program & Kegiatan
+│    ├── Anggaran & Output
+│    └── Cascading → Perjanjian Kinerja
+│
+├── 🤝 Perjanjian Kinerja (PK)
+│    ├── Komitmen Kinerja Tahunan
+│    ├── Target & Baseline
+│    └── Cascading → Rencana Aksi
+│
+├── ⚡ Rencana Aksi
+│    ├── Action Plan per Triwulan/Bulan
+│    ├── Penanggung Jawab
+│    └── Status (Belum Mulai / Progres / Selesai)
+│
+├── 🗂️ Manajemen Dokumen
+│    ├── Upload/Download Dokumen PK, Renstra, dll.
+│    └── Versioning Dokumen
+│
+├── 📈 Monitoring & Evaluasi
+│    ├── Input Realisasi
+│    ├── Laporan Capaian
+│    └── Export PDF/Excel
+│
+└── ⚙️ Admin Panel
+     ├── Manajemen User & Role
+     ├── Master Data (Unit, Program, Indikator)
+     └── Audit Trail

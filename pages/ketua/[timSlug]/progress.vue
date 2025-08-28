@@ -189,7 +189,7 @@ const weeklyData = ref([
 import { useProgress } from '~/composables/useProgress'
 import CalendarView from '~/components/CalendarView.vue'
 const activeTab = ref('timeline')
-definePageMeta({ layout: 'ketua' })
+definePageMeta({ layout: 'default' })
 import { useRoute } from 'vue-router'
 import { ref, computed } from 'vue'
 

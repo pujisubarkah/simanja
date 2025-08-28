@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'anggota' })
+
 const kompetensi = ref([
   { id: 'kerja-sama', nama: 'Kerja Sama Tim' },
   { id: 'produktivitas', nama: 'Produktivitas' },

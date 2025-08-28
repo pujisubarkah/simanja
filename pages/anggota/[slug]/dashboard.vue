@@ -63,7 +63,8 @@
 import { useUserStore } from '~/stores/user'
 const userStore = useUserStore()
 
-definePageMeta({ layout: 'anggota' })
+// Hapus layout khusus, gunakan default yang sudah dinamis
+// definePageMeta({ layout: 'anggota' })
 const { slug } = useRoute().params
 
 // Data dummy

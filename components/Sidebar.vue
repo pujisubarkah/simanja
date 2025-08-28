@@ -6,79 +6,16 @@
 
     <nav class="flex-1 p-4">
       <ul class="menu menu-lg rounded-box space-y-1">
-
-        <!-- Organisasi -->
-        <li class="menu-title text-blue-900">Organisasi</li>
-        <li>
+        <li class="menu-title text-blue-900">Menu</li>
+        <li v-for="item in sidebarMenu" :key="item.to">
           <NuxtLink 
-            to="/admin/organisasi/visi-misi" 
+            :to="item.to" 
             class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
             active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
           >
-            🎯 Visi & Misi
+            <span>{{ item.icon }}</span> {{ item.label }}
           </NuxtLink>
         </li>
-        <li>
-          <NuxtLink 
-            to="/admin/organisasi/sasaran" 
-            class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
-            active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
-          >
-            📈 Sasaran Program
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink 
-            to="/admin/organisasi/indikator" 
-            class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
-            active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
-          >
-            📊 Rencana Aksi
-          </NuxtLink>
-        </li>
-
-        <!-- Analisis -->
-        <li class="menu-title mt-4 text-blue-900">Analisis</li>
-        <li>
-          <NuxtLink 
-            to="/admin/analisis/pohon-kinerja" 
-            class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
-            active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
-          >
-            🌳 Pohon Kinerja
-          </NuxtLink>
-        </li>
-
-        <!-- Unit Kerja -->
-        <li class="menu-title mt-4 text-blue-900">Unit Kerja</li>
-        <li>
-          <NuxtLink 
-            to="/admin/unit/program" 
-            class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
-            active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
-          >
-            🗂️ Program
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink 
-            to="/admin/unit/kegiatan" 
-            class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
-            active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
-          >
-            📝 Kegiatan
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink 
-            to="/admin/unit/target" 
-            class="hover:bg-blue-100 hover:text-yellow-600 transition rounded-lg px-2 py-1 font-semibold"
-            active-class="bg-blue-100 text-blue-900 font-bold border-l-4 border-yellow-500 -ml-2 pl-4"
-          >
-            🎯 Target Unit
-          </NuxtLink>
-        </li>
-
       </ul>
     </nav>
 
@@ -87,3 +24,8 @@
     </div>
   </aside>
 </template>
+
+<script setup>
+import { useSidebarMenu } from '~/menuConfig'
+const sidebarMenu = useSidebarMenu()
+</script>

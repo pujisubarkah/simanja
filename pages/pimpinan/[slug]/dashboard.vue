@@ -133,7 +133,7 @@ const slug = route.params.slug || ''
 
 // Middleware dinonaktifkan sementara
 // definePageMeta({ middleware: ['auth'] })
-definePageMeta({ layout: 'pimpinan' })
+
 
 // Data dummy untuk unit bermasalah
 const underperformingUnits = [

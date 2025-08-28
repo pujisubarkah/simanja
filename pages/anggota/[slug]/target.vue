@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'anggota' })
+
 const targets = ref([
   { id: 1, nama: 'Laporan Bulanan', periode: 'Apr 2025', target: 'Selesai', progres: 90 },
   { id: 2, nama: 'Input Data', periode: 'Setiap hari', target: '10 data/hari', progres: 85 },

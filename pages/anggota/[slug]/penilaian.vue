@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'anggota' })
+
 const hasilPenilaian = ref([
   { id: 'kerja-sama', nama: 'Kerja Sama Tim', skor: 4, feedback: 'Sering membantu rekan kerja.' },
   { id: 'produktivitas', nama: 'Produktivitas', skor: 5, feedback: 'Target selalu tercapai tepat waktu.' },

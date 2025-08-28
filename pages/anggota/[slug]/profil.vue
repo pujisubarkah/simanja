@@ -154,7 +154,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'anggota' })
+
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUserStore } from '~/stores/user'

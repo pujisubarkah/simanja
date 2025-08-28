@@ -7,7 +7,6 @@
         {{ totalAnggota }} anggota
       </div>
     </div>
-
     <!-- Tabel Anggota -->
     <div class="bg-white rounded-xl shadow overflow-hidden">
       <table class="w-full">
@@ -50,9 +49,9 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'ketua' })
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 const timSlug = useRoute().params.timSlug
-
 const anggotaTim = ref([
   { id: 1, nama: 'Andi Prasetyo', peran: 'Staff Marketing', kinerja: 90, slug: 'andi' },
   { id: 2, nama: 'Budi Santoso', peran: 'Desainer Grafis', kinerja: 75, slug: 'budi' },
@@ -60,9 +59,7 @@ const anggotaTim = ref([
   { id: 4, nama: 'Dewi Lestari', peran: 'Social Media', kinerja: 64, slug: 'dewi' },
   { id: 5, nama: 'Eka Pratama', peran: 'Video Editor', kinerja: 82, slug: 'eka' }
 ])
-
 const totalAnggota = anggotaTim.value.length
-
 const textColor = (k) => k >= 80 ? 'text-green-600' : k >= 60 ? 'text-yellow-600' : 'text-red-600'
 const progressColor = (k) => k >= 80 ? 'bg-green-500' : k >= 60 ? 'bg-yellow-500' : 'bg-red-500'
 </script>

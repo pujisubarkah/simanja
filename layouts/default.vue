@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen bg-gray-100">
-    <!-- Sidebar -->
+    <!-- Sidebar dinamis sesuai menuConfig dan role -->
     <Sidebar />
 
     <!-- Main content -->
@@ -12,3 +12,8 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import Sidebar from '~/components/Sidebar.vue'
+import Header from '~/components/Header.vue'
+</script>

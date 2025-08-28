@@ -92,7 +92,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'anggota' })
+// definePageMeta({ layout: 'anggota' })
 import { useRoute } from 'vue-router'
 import { ref, computed } from 'vue'
 

@@ -57,8 +57,8 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'ketua' })
-const timSlug = useRoute().params.timSlug
+
+
 
 // Data dummy
 const totalAnggota = 5

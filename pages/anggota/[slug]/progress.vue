@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: 'anggota' })
+
 const progress = ref({
   tanggal: new Date().toISOString().split('T')[0],
   tugas: '',
