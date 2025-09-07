@@ -27,6 +27,9 @@
             <img src="/bangga.png" alt="Bangga" class="w-32 h-32 object-contain drop-shadow-lg" />
           </div>
           <h1 class="text-3xl font-extrabold text-blue-700 mb-2 text-center tracking-wide">Sistem Informasi Manajemen Kinerja<br><span class="text-blue-500">E-Performance</span></h1>
+          <div class="bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-2 rounded-lg text-center font-semibold">
+            🚧 Coming Soon 🚧
+          </div>
         </div>
         <form @submit.prevent="handleLogin" class="space-y-4">
           <div>
