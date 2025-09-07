@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     imports: {
       autoImport: true
     },
-    preset: 'node-server'
+    preset: 'vercel'
   },
   vite: {
     plugins: [tsconfigPaths()]
