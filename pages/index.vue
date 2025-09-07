@@ -21,9 +21,10 @@
       <!-- Login Section -->
       <div class="md:w-1/2 w-full flex flex-col justify-center p-10">
         <div class="flex flex-col items-center mb-6">
-          <div class="flex gap-4 mb-2">
-            <img src="/lanri_.png" alt="LAN RI" class="w-40 h-40 object-contain drop-shadow-lg" />
-            <img src="/berakhlak.png" alt="BerAKHLAK" class="w-40 h-40 object-contain drop-shadow-lg" />
+          <div class="flex gap-2 mb-2 justify-center items-center">
+            <img src="/lanri_.png" alt="LAN RI" class="w-32 h-32 object-contain drop-shadow-lg" />
+            <img src="/berakhlak.png" alt="BerAKHLAK" class="w-32 h-32 object-contain drop-shadow-lg" />
+            <img src="/bangga.png" alt="Bangga" class="w-32 h-32 object-contain drop-shadow-lg" />
           </div>
           <h1 class="text-3xl font-extrabold text-blue-700 mb-2 text-center tracking-wide">Sistem Informasi Manajemen Kinerja<br><span class="text-blue-500">E-Performance</span></h1>
         </div>
