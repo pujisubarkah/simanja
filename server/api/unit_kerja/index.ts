@@ -5,7 +5,18 @@ import { unit_kerja } from '~/server/database/unit_kerja';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params || {};
-  if (!id) return { error: 'unit_kerja id required' };
+  if (!id) {
+    // Jika tidak ada id, ambil semua unit_kerja
+    const rows = await db
+      .select({
+        unit_id: unit_kerja.id,
+        unit_nama: unit_kerja.nama,
+        unit_level: unit_kerja.level,
+        parent_id: unit_kerja.parent_id,
+      })
+      .from(unit_kerja);
+    return rows;
+  }
   const rows = await db
     .select({
       unit_id: unit_kerja.id,
