@@ -53,7 +53,7 @@
             </thead>
             <tbody>
               <tr v-for="(row, idx) in filteredPkData" :key="row.id">
-                <td>{{ idx + 1 }}</td>
+                <td>{{ ((Number(page) - 1) * pageSize + idx + 1) }}</td>
                 <td>{{ row.tahun }}</td>
                 <td>{{ row.sasaran_strategis }}</td>
                 <td>{{ row.indikator_kinerja }}</td>
@@ -76,6 +76,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Pagination -->
+    <Pagination
+      :currentPage="page"
+      :totalPages="totalPages"
+      @change="page = $event"
+    />
 
     <!-- Modal Tambah PK -->
     <div v-if="isModalOpen" class="modal modal-open">
@@ -156,17 +163,29 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue"
+import { ref, computed, onMounted, watch } from "vue"
+import Pagination from '~/components/ui/pagination.vue'
 
 const pkData = ref([])
 const penanggungJawabList = ref([])
 const unitKerjaOptions = ref([])
 const selectedPenanggungJawab = ref("")
-const filteredPkData = computed(() =>
+const page = ref(1)
+const pageSize = 10
+
+const filteredPkRaw = computed(() =>
   selectedPenanggungJawab.value
-    ? pkData.value.filter(r => r.penanggung_jawab === selectedPenanggungJawab.value)
+    ? pkData.value.filter(r => r.unit_kerja_id === Number(selectedPenanggungJawab.value))
     : pkData.value
 )
+const totalPages = computed(() => {
+  const len = filteredPkRaw.value.length
+  return len > 0 ? Math.ceil(len / pageSize) : 1
+})
+const filteredPkData = computed(() => {
+  const start = (Number(page.value) - 1) * pageSize
+  return filteredPkRaw.value.slice(start, start + pageSize)
+})
 
 const isModalOpen = ref(false)
 const showSuccessAlert = ref(false)
@@ -209,6 +228,8 @@ onMounted(() => {
   fetchPKData()
   fetchUnitKerja()
 })
+
+watch(selectedPenanggungJawab, () => { page.value = 1 })
 
 const openModal = () => {
   isModalOpen.value = true
