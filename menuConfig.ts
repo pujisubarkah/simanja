@@ -10,6 +10,8 @@ export const menuConfig = {
     { label: 'Rencana Aksi', icon: '⚡', to: '/admin/rencana-aksi' },
     { label: 'Monitoring & Evaluasi', icon: '📈', to: '/admin/monitoring' },
     { label: 'Manajemen Dokumen', icon: '🗂️', to: '/admin/dokumen' },
+    { label: 'Master Sasaran Program', icon: '🎯', to: '/admin/master-sasaran-program' },
+    { label: 'Master Sasaran Kegiatan', icon: '🗂️', to: '/admin/master-sasaran-kegiatan' },
     { label: 'Master Data', icon: '🗃️', to: '/admin/master' },
     { label: 'User & Role', icon: '👤', to: '/admin/user' },
     { label: 'Audit Trail', icon: '📝', to: '/admin/audit' }
