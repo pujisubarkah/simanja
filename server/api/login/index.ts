@@ -1,5 +1,4 @@
 import { users } from '~/server/database/users';
-import { pegawai } from '~/server/database/pegawai';
 import { db } from '~/server/db';
 import { readBody, defineEventHandler } from 'h3';
 import { eq } from 'drizzle-orm';
@@ -19,8 +18,6 @@ export default defineEventHandler(async (event) => {
     if (!valid) {
       return { error: 'Password salah' };
     }
-    // Join pegawai berdasarkan user_id
-    const peg = await db.select().from(pegawai).where(eq(pegawai.user_id, user.id)).then(rows => rows[0]);
     // Tentukan redirect berdasarkan role_id
     let redirect = '';
     if (user.role_id === 6) {
@@ -32,8 +29,8 @@ export default defineEventHandler(async (event) => {
     } else {
       redirect = '/'; // default jika role tidak dikenali
     }
-    // Kembalikan data user tanpa password dan data pegawai
+    // Kembalikan data user tanpa password
     const { password, ...userData } = user;
-    return { success: true, user: userData, pegawai: peg, redirect };
+    return { success: true, user: userData, redirect };
   }
 });

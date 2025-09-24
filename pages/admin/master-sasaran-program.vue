@@ -12,14 +12,14 @@
             <thead class="bg-info text-center">
               <tr>
                 <th>No</th>
-                <th>Nama Sasaran Program</th>
+                <th>Deskripsi Sasaran Program</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, idx) in filteredList" :key="item.id">
                 <td>{{ idx + 1 }}</td>
-                <td>{{ item.nama }}</td>
+                <td>{{ item.deskripsi }}</td>
                 <td>
                   <button class="btn btn-sm btn-warning mr-2" @click="editItem(item)">Edit</button>
                   <button class="btn btn-sm btn-error" @click="deleteItem(item.id)">Hapus</button>
@@ -40,8 +40,8 @@
         <h3 class="font-bold text-lg mb-4">{{ editMode ? 'Edit' : 'Tambah' }} Sasaran Program</h3>
         <form @submit.prevent="saveItem">
           <div class="form-control mb-4">
-            <label class="label">Nama Sasaran Program</label>
-            <input v-model="form.nama" type="text" class="input input-bordered w-full" required />
+            <label class="label">Deskripsi Sasaran Program</label>
+            <input v-model="form.deskripsi" type="text" class="input input-bordered w-full" required />
           </div>
           <div class="modal-action">
             <button type="button" class="btn btn-ghost" @click="closeModal">Batal</button>
@@ -55,42 +55,52 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
-const list = ref([
-  { id: 1, nama: 'Peningkatan Kualitas Pendidikan' },
-  { id: 2, nama: 'Penguatan Tata Kelola Pemerintahan' },
-])
+const list = ref([])
 const search = ref('')
 const filteredList = computed(() =>
-  list.value.filter(item => item.nama.toLowerCase().includes(search.value.toLowerCase()))
+  list.value.filter(item => item.deskripsi?.toLowerCase().includes(search.value.toLowerCase()))
 )
+
+onMounted(async () => {
+  try {
+    const res = await fetch('/api/sasaran_program')
+    const result = await res.json()
+    if (result.success) {
+      list.value = result.data
+    }
+  } catch (e) {
+    console.error('Gagal fetch sasaran program', e)
+  }
+})
 
 const isModalOpen = ref(false)
 const editMode = ref(false)
-const form = ref({ id: null, nama: '' })
+const form = ref({ id: null, deskripsi: '' })
 
 function openModal() {
   isModalOpen.value = true
   editMode.value = false
-  form.value = { id: null, nama: '' }
+  form.value = { id: null, deskripsi: '' }
 }
 function closeModal() {
   isModalOpen.value = false
 }
 function saveItem() {
+  // TODO: Integrasi POST/PUT ke API
   if (editMode.value) {
     const idx = list.value.findIndex(i => i.id === form.value.id)
-    if (idx !== -1) list.value[idx].nama = form.value.nama
+    if (idx !== -1) list.value[idx].deskripsi = form.value.deskripsi
   } else {
     const newId = list.value.length ? Math.max(...list.value.map(i => i.id)) + 1 : 1
-    list.value.push({ id: newId, nama: form.value.nama })
+    list.value.push({ id: newId, deskripsi: form.value.deskripsi })
   }
   closeModal()
 }
 function editItem(item) {
   editMode.value = true
-  form.value = { ...item }
+  form.value = { id: item.id, deskripsi: item.deskripsi }
   isModalOpen.value = true
 }
 function deleteItem(id) {

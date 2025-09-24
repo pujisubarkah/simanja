@@ -77,7 +77,8 @@ const handleLogin = async () => {
   })
   const data = await res.json()
   if (data.success) {
-    userStore.setUser(data.user, data.pegawai) // <-- tambahkan pegawai
+    userStore.setUser(data.user)
+    console.log('unit_kerja_id setelah login:', userStore.unit_kerja_id)
     // Redirect sesuai role
     if (data.user.role_id === 1) {
       router.push('/admin')
